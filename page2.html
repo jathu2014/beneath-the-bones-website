@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hear · Beneath the Bones</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/page2.css" />
+</head>
+<body>
+
+  <!-- Top navigation -->
+  <nav class="top-nav">
+    <a href="page1.html" class="nav-back">← BACK</a>
+    <div class="nav-title">BENEATH THE BONES</div>
+    <div class="nav-step">02 / 03 · HEAR</div>
+  </nav>
+
+  <!-- Page header -->
+  <header class="page-header">
+    <div class="page-badge">SOUND EXPERIENCE</div>
+    <h1 class="page-title">HEAR</h1>
+    <p class="page-subtitle">The deepest voice in the ocean</p>
+  </header>
+
+  <!-- Frequency intro visual -->
+  <div class="freq-visual">
+    <div class="freq-bar" style="height:20px"></div>
+    <div class="freq-bar" style="height:45px"></div>
+    <div class="freq-bar" style="height:70px"></div>
+    <div class="freq-bar" style="height:90px"></div>
+    <div class="freq-bar" style="height:110px"></div>
+    <div class="freq-bar" style="height:130px"></div>
+    <div class="freq-bar" style="height:110px"></div>
+    <div class="freq-bar" style="height:90px"></div>
+    <div class="freq-bar" style="height:70px"></div>
+    <div class="freq-bar" style="height:45px"></div>
+    <div class="freq-bar" style="height:20px"></div>
+  </div>
+
+  <!-- Vocal science section -->
+  <section class="vocal-section">
+    <div class="vocal-header">
+      <div class="edu-badge">THE SCIENCE OF WHALE SONG</div>
+      <h2 class="vocal-title">Infrasound — Beyond Human Hearing</h2>
+      <p class="vocal-intro">
+        Blue whales produce the loudest sounds of any animal on Earth — reaching 188 decibels. 
+        Their calls are below 20 Hz, inaudible to humans without technology. 
+        What you will hear is a pitch-shifted recording, made audible for this experience.
+      </p>
+    </div>
+
+    <!-- Vocal fact cards -->
+    <div class="vocal-facts">
+      <div class="vocal-fact">
+        <div class="vf-icon">🔊</div>
+        <div class="vf-num">188 dB</div>
+        <div class="vf-label">Peak Volume</div>
+        <div class="vf-desc">Louder than a jet engine at takeoff — the most powerful biological sound ever recorded</div>
+      </div>
+      <div class="vocal-fact">
+        <div class="vf-icon">〰️</div>
+        <div class="vf-num">10–40 Hz</div>
+        <div class="vf-label">Frequency Range</div>
+        <div class="vf-desc">Below the threshold of human hearing — we feel these sounds more than hear them</div>
+      </div>
+      <div class="vocal-fact">
+        <div class="vf-icon">🌊</div>
+        <div class="vf-num">1,600 km</div>
+        <div class="vf-label">Call Range</div>
+        <div class="vf-desc">Blue whale songs can travel across entire ocean basins to communicate with others</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Audio player section -->
+  <section class="player-section">
+    <div class="player-card">
+
+      <div class="player-header">
+        <div class="player-badge">NOW PLAYING</div>
+        <div class="player-track-name">Blue Whale Vocalization — Sri Lankan Waters</div>
+        <div class="player-track-sub">Recorded via hydrophone · Pitch-shifted for audibility</div>
+      </div>
+
+      <!-- WaveSurfer waveform -->
+      <div id="waveform"></div>
+
+      <!-- Time display -->
+      <div class="time-display">
+        <span id="currentTime">0:00</span>
+        <span id="totalTime">0:00</span>
+      </div>
+
+      <!-- Player controls -->
+      <div class="player-controls">
+        <button class="ctrl-btn" id="rewindBtn" onclick="rewindAudio()">⟨⟨</button>
+        <button class="ctrl-btn play-btn" id="playBtn" onclick="toggleAudio()">▶</button>
+        <button class="ctrl-btn" id="forwardBtn" onclick="forwardAudio()">⟩⟩</button>
+      </div>
+
+      <!-- Volume slider -->
+      <div class="volume-row">
+        <span class="vol-icon">🔈</span>
+        <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="0.8"
+               oninput="setVolume(this.value)" class="vol-slider" />
+        <span class="vol-icon">🔊</span>
+      </div>
+
+      <!-- Audio not loaded notice -->
+      <div class="audio-notice" id="audioNotice">
+        ⚠ Audio file not yet loaded — drop your MP3 into <code>assets/audio/</code>
+        and update the <code>src</code> in page2.js
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Call types section -->
+  <section class="calltypes-section">
+    <div class="section-divider">
+      <span class="divider-line"></span>
+      <span class="divider-icon">✦</span>
+      <span class="divider-line"></span>
+    </div>
+
+    <div class="calltypes-header">
+      <div class="edu-badge">TYPES OF CALLS</div>
+      <h2 class="calltypes-title">What Is the Whale Saying?</h2>
+    </div>
+
+    <div class="calltype-list">
+      <div class="calltype-item">
+        <div class="ct-num">01</div>
+        <div class="ct-content">
+          <div class="ct-name">D Calls — Contact Calls</div>
+          <div class="ct-desc">Short, frequency-modulated pulses used between individuals for social contact. Often heard in feeding aggregations off the coast of Sri Lanka between November and April.</div>
+          <div class="ct-freq">Frequency: 80–100 Hz · Duration: 0.5–1 sec</div>
+        </div>
+      </div>
+      <div class="calltype-item">
+        <div class="ct-num">02</div>
+        <div class="ct-content">
+          <div class="ct-name">Songs — Long-Range Communication</div>
+          <div class="ct-desc">Repeating low-frequency patterns produced primarily by males. These stereotyped sequences can last for hours and travel thousands of kilometres through deep ocean channels.</div>
+          <div class="ct-freq">Frequency: 10–40 Hz · Duration: 20+ seconds per unit</div>
+        </div>
+      </div>
+      <div class="calltype-item">
+        <div class="ct-num">03</div>
+        <div class="ct-content">
+          <div class="ct-name">Arch Notes — Feeding Context</div>
+          <div class="ct-desc">Rising tonal calls associated with krill patches and coordinated feeding behaviour. The specific patterns vary by ocean region, suggesting regional dialects among blue whale populations.</div>
+          <div class="ct-freq">Frequency: 25–100 Hz · Duration: 2–5 sec</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Next navigation -->
+  <div class="next-nav">
+    <div class="next-label">NEXT EXPERIENCE</div>
+    <a href="page3.html" class="next-btn">
+      <span>FEEL THE WHALE</span>
+      <span class="next-arrow">→</span>
+    </a>
+    <p class="next-desc">The full immersive experience — sight, sound, and touch</p>
+  </div>
+
+  <!-- WaveSurfer.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/7.8.4/wavesurfer.min.js"></script>
+  <script src="js/page2.js"></script>
+</body>
+</html>
