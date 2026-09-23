@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>See · Beneath the Bones</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet" />
+  <!-- Google model-viewer component -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/page1.css" />
+</head>
+<body>
+
+  <!-- Top navigation bar -->
+  <nav class="top-nav">
+    <a href="index.html" class="nav-back">← BACK</a>
+    <div class="nav-title">BENEATH THE BONES</div>
+    <div class="nav-step">01 / 03 · SEE</div>
+  </nav>
+
+  <!-- Page hero label -->
+  <header class="page-header">
+    <div class="page-badge">VISUAL EXPERIENCE</div>
+    <h1 class="page-title">SEE</h1>
+    <p class="page-subtitle">From skeleton to skin — witness the transformation</p>
+  </header>
+
+  <!-- 3D Model Viewer Section -->
+  <section class="model-section">
+
+    <!-- Model viewer wrapper -->
+    <div class="model-wrapper">
+      <model-viewer
+        id="whaleModel"
+        src="assets/models/whale-transform.glb"
+        alt="Blue whale skeleton to full whale transformation"
+        camera-controls
+        touch-action="pan-y"
+        auto-rotate
+        auto-rotate-delay="3000"
+        rotation-per-second="8deg"
+        environment-image="neutral"
+        shadow-intensity="0"
+        exposure="0.8"
+        camera-orbit="0deg 75deg 120%"
+        min-camera-orbit="auto auto 60%"
+        max-camera-orbit="auto auto 200%"
+        style="width:100%; height:100%; background:transparent;"
+      >
+        <!-- Loading state -->
+        <div slot="progress-bar" class="model-progress">
+          <div class="progress-bar-inner" id="progressBar"></div>
+        </div>
+
+        <!-- Placeholder shown when no GLB yet -->
+        <div slot="poster" class="model-poster">
+          <div class="poster-inner">
+            <div class="poster-icon">🦴</div>
+            <p class="poster-text">3D Model Loading…</p>
+            <p class="poster-sub">Whale transformation model</p>
+          </div>
+        </div>
+
+        <!-- Hotspot annotations (positions to be updated once GLB is ready) -->
+        <button
+          class="hotspot"
+          slot="hotspot-1"
+          data-position="0 1.5 0"
+          data-normal="0 1 0"
+          data-visibility-attribute="visible">
+          <div class="hotspot-label">Rostrum (Jaw)</div>
+        </button>
+
+        <button
+          class="hotspot"
+          slot="hotspot-2"
+          data-position="0 0 0"
+          data-normal="0 1 0"
+          data-visibility-attribute="visible">
+          <div class="hotspot-label">Pectoral Fins</div>
+        </button>
+
+        <button
+          class="hotspot"
+          slot="hotspot-3"
+          data-position="-1.5 0 0"
+          data-normal="0 1 0"
+          data-visibility-attribute="visible">
+          <div class="hotspot-label">Tail Flukes</div>
+        </button>
+
+      </model-viewer>
+
+      <!-- Interaction hint -->
+      <div class="model-hint">
+        <span>↔ Drag to rotate &nbsp;·&nbsp; Pinch to zoom</span>
+      </div>
+    </div>
+
+    <!-- Animation controls -->
+    <div class="animation-controls">
+      <button class="anim-btn" id="animBtn" onclick="toggleAnimation()">
+        <span class="anim-icon" id="animIcon">▶</span>
+        <span id="animLabel">PLAY TRANSFORMATION</span>
+      </button>
+      <p class="anim-desc">Watch the skeleton come alive</p>
+    </div>
+
+  </section>
+
+  <!-- Gold divider -->
+  <div class="section-divider">
+    <span class="divider-line"></span>
+    <span class="divider-icon">✦</span>
+    <span class="divider-line"></span>
+  </div>
+
+  <!-- Educational section -->
+  <section class="edu-section">
+    <div class="edu-header">
+      <div class="edu-badge">ABOUT THE SPECIMEN</div>
+      <h2 class="edu-title">The Blue Whale of Colombo</h2>
+      <p class="edu-intro">
+        This skeleton has been displayed at the Colombo National Museum since 1914.
+        It is one of only a handful of complete blue whale skeletons on public display in Asia.
+      </p>
+    </div>
+
+    <!-- Fact cards -->
+    <div class="fact-grid">
+      <div class="fact-card">
+        <div class="fact-number">27m</div>
+        <div class="fact-label">Length of Specimen</div>
+        <div class="fact-desc">Equivalent to two double-decker buses placed end to end</div>
+      </div>
+      <div class="fact-card">
+        <div class="fact-number">150T</div>
+        <div class="fact-label">Maximum Weight</div>
+        <div class="fact-desc">The heaviest animal ever known to have existed on Earth</div>
+      </div>
+      <div class="fact-card">
+        <div class="fact-number">1914</div>
+        <div class="fact-label">Year of Display</div>
+        <div class="fact-desc">Over a century of awe in the heart of Colombo</div>
+      </div>
+      <div class="fact-card">
+        <div class="fact-number">800km</div>
+        <div class="fact-label">Sri Lankan Waters</div>
+        <div class="fact-desc">Blue whales migrate through Sri Lankan waters annually</div>
+      </div>
+    </div>
+
+    <!-- Body part annotations (matches hotspots) -->
+    <div class="annotation-section">
+      <h3 class="annotation-title">Anatomy of a Giant</h3>
+      <div class="annotation-list">
+        <div class="annotation-item">
+          <div class="annotation-num">01</div>
+          <div class="annotation-content">
+            <div class="annotation-name">Rostrum (Upper Jaw)</div>
+            <div class="annotation-text">The rostrum of a blue whale contains baleen plates — comb-like structures used to filter krill from seawater. A single blue whale can consume 40 million krill per day.</div>
+          </div>
+        </div>
+        <div class="annotation-item">
+          <div class="annotation-num">02</div>
+          <div class="annotation-content">
+            <div class="annotation-name">Pectoral Fins</div>
+            <div class="annotation-text">The pectoral fins are used for steering and stabilisation. Inside each fin are five finger-like bones — evidence of the whale's land-dwelling ancestors from 50 million years ago.</div>
+          </div>
+        </div>
+        <div class="annotation-item">
+          <div class="annotation-num">03</div>
+          <div class="annotation-content">
+            <div class="annotation-name">Tail Flukes</div>
+            <div class="annotation-text">Unlike fish, whale flukes move vertically. A single thrust of the flukes can accelerate the whale to 50 km/h in bursts — enough power to outswim most ocean predators.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Next page navigation -->
+  <div class="next-nav">
+    <div class="next-label">NEXT EXPERIENCE</div>
+    <a href="page2.html" class="next-btn">
+      <span>HEAR THE WHALE</span>
+      <span class="next-arrow">→</span>
+    </a>
+    <p class="next-desc">Explore the vocalisations of the blue whale</p>
+  </div>
+
+  <script src="js/page1.js"></script>
+</body>
+</html>
