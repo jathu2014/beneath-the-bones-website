@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beneath the Bones</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/landing.css" />
+</head>
+<body>
+
+  <!-- Particle canvas background -->
+  <canvas id="particles"></canvas>
+
+  <!-- Ambient ocean glow -->
+  <div class="ocean-glow"></div>
+
+  <!-- Main landing content -->
+  <main class="landing-container">
+
+    <!-- Museum badge -->
+    <div class="museum-badge">
+      <span>COLOMBO NATIONAL MUSEUM</span>
+    </div>
+
+    <!-- Title block -->
+    <div class="title-block">
+      <h1 class="main-title">
+        <span class="title-line-1">BENEATH</span>
+        <span class="title-divider">✦</span>
+        <span class="title-line-2">THE BONES</span>
+      </h1>
+      <p class="subtitle">An Immersive Journey into the Blue Whale</p>
+    </div>
+
+    <!-- Decorative whale silhouette -->
+    <div class="whale-silhouette">
+      <svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 50 120 Q 150 60 300 80 Q 420 95 500 70 Q 540 60 560 80 Q 530 100 510 110 Q 560 115 580 130 Q 550 140 500 130 Q 420 150 300 140 Q 150 160 80 150 Q 40 145 20 160 Q 30 135 50 120 Z" 
+              fill="none" stroke="rgba(180,140,60,0.3)" stroke-width="1.5"/>
+        <!-- Tail fin -->
+        <path d="M 20 160 Q 5 145 10 130 Q 25 140 35 135 Q 15 120 25 108 Q 45 125 50 120"
+              fill="none" stroke="rgba(180,140,60,0.3)" stroke-width="1.5"/>
+        <!-- Eye -->
+        <circle cx="480" cy="90" r="4" fill="rgba(180,140,60,0.4)"/>
+        <!-- Pectoral fin -->
+        <path d="M 380 105 Q 370 150 340 155 Q 360 120 380 105 Z"
+              fill="rgba(180,140,60,0.15)" stroke="rgba(180,140,60,0.3)" stroke-width="1"/>
+      </svg>
+    </div>
+
+    <!-- Experience intro text -->
+    <p class="intro-text">
+      Step beyond the skeleton.<br/>
+      See it breathe. Hear it call. Feel its presence.
+    </p>
+
+    <!-- Begin button -->
+    <a href="page1.html" class="begin-btn">
+      <span class="btn-text">BEGIN THE EXPERIENCE</span>
+      <span class="btn-arrow">→</span>
+    </a>
+
+    <!-- Experience steps indicator -->
+    <div class="experience-steps">
+      <div class="step">
+        <div class="step-icon">👁</div>
+        <div class="step-label">SEE</div>
+      </div>
+      <div class="step-connector">—</div>
+      <div class="step">
+        <div class="step-icon">🎵</div>
+        <div class="step-label">HEAR</div>
+      </div>
+      <div class="step-connector">—</div>
+      <div class="step">
+        <div class="step-icon">✦</div>
+        <div class="step-label">FEEL</div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="landing-footer">
+    <p>Colombo National Museum · Immersive Experience Project · 2025</p>
+  </footer>
+
+  <script src="js/landing.js"></script>
+</body>
+</html>

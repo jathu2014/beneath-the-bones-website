@@ -1,0 +1,44 @@
+/* ===== GLOBAL STYLES ===== */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gold-dim: rgba(201, 168, 76, 0.3);
+    --deep-ocean: #020B18;
+    --ocean-mid: #041525;
+    --ocean-blue: #0A2540;
+    --text-primary: #F0E8D5;
+    --text-muted: rgba(240, 232, 213, 0.6);
+    --white: #ffffff;
+  }
+  
+  html, body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--deep-ocean);
+    color: var(--text-primary);
+    font-family: 'Raleway', sans-serif;
+    overflow-x: hidden;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--deep-ocean);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--gold-dim);
+    border-radius: 2px;
+  }
