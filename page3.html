@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feel · Beneath the Bones</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet" />
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/page3.css" />
+</head>
+<body>
+
+  <!-- Top navigation -->
+  <nav class="top-nav">
+    <a href="page2.html" class="nav-back">← BACK</a>
+    <div class="nav-title">BENEATH THE BONES</div>
+    <div class="nav-step">03 / 03 · FEEL</div>
+  </nav>
+
+  <!-- Page header -->
+  <header class="page-header">
+    <div class="page-badge">FULL IMMERSION</div>
+    <h1 class="page-title">FEEL</h1>
+    <p class="page-subtitle">Sight. Sound. Touch. — All at once.</p>
+  </header>
+
+  <!-- Haptic notice banner -->
+  <div class="haptic-notice" id="hapticNotice">
+    <div class="haptic-notice-inner">
+      <span class="haptic-icon">📳</span>
+      <span id="hapticNoticeText">Checking vibration support…</span>
+    </div>
+  </div>
+
+  <!-- Main immersion section -->
+  <section class="immersion-section">
+
+    <!-- Swimming whale model -->
+    <div class="immersion-model-wrapper">
+      <model-viewer
+        id="swimWhale"
+        src="assets/models/whale-swim.glb"
+        alt="Blue whale swimming animation"
+        camera-controls
+        touch-action="pan-y"
+        environment-image="neutral"
+        shadow-intensity="0"
+        exposure="0.7"
+        camera-orbit="0deg 80deg 130%"
+        min-camera-orbit="auto auto 70%"
+        max-camera-orbit="auto auto 200%"
+        style="width:100%; height:100%; background:transparent;"
+      >
+        <div slot="poster" class="model-poster">
+          <div class="poster-inner">
+            <div class="poster-icon">🐋</div>
+            <p class="poster-text">Swimming Whale</p>
+            <p class="poster-sub">GLB model loading…</p>
+          </div>
+        </div>
+      </model-viewer>
+
+      <!-- Ambient ripple rings overlay -->
+      <div class="ripple-container" id="rippleContainer">
+        <div class="ripple r1"></div>
+        <div class="ripple r2"></div>
+        <div class="ripple r3"></div>
+      </div>
+    </div>
+
+    <!-- Central immersion trigger button -->
+    <div class="immersion-controls">
+      <button class="immerse-btn" id="immerseBtn" onclick="toggleImmersion()">
+        <div class="immerse-btn-inner">
+          <span class="immerse-icon" id="immerseIcon">▶</span>
+          <span class="immerse-text" id="immerseText">BEGIN IMMERSION</span>
+          <span class="immerse-sub" id="immerseSub">Animation · Audio · Haptics</span>
+        </div>
+      </button>
+    </div>
+
+    <!-- Haptics toggle (Android only) -->
+    <div class="haptic-toggle-row" id="hapticToggleRow" style="display:none;">
+      <label class="toggle-label">
+        <span class="toggle-text">HAPTIC VIBRATION</span>
+        <div class="toggle-switch">
+          <input type="checkbox" id="hapticToggle" checked onchange="toggleHaptics(this.checked)" />
+          <span class="toggle-slider"></span>
+        </div>
+        <span class="toggle-status" id="toggleStatus">ON</span>
+      </label>
+    </div>
+
+    <!-- Experience status bar -->
+    <div class="status-bar" id="statusBar">
+      <div class="status-item" id="statusAnim">
+        <span class="status-dot dot-inactive"></span>
+        <span class="status-label">ANIMATION</span>
+      </div>
+      <div class="status-item" id="statusAudio">
+        <span class="status-dot dot-inactive"></span>
+        <span class="status-label">AUDIO</span>
+      </div>
+      <div class="status-item" id="statusHaptic">
+        <span class="status-dot dot-inactive"></span>
+        <span class="status-label">HAPTICS</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Gold divider -->
+  <div class="section-divider">
+    <span class="divider-line"></span>
+    <span class="divider-icon">✦</span>
+    <span class="divider-line"></span>
+  </div>
+
+  <!-- What you're feeling section -->
+  <section class="feeling-section">
+    <div class="feeling-header">
+      <div class="edu-badge">WHY YOUR PHONE VIBRATES</div>
+      <h2 class="feeling-title">Physical Haptics Explained</h2>
+      <p class="feeling-intro">
+        The vibrations you feel are synchronised to the peak moments in the whale's call — 
+        the exact points where infrasound pressure would be felt in the ocean.
+        Your phone's motor becomes a surrogate for the deep sea.
+      </p>
+    </div>
+
+    <div class="feeling-grid">
+      <div class="feeling-card">
+        <div class="fc-icon">〰️</div>
+        <div class="fc-title">Infrasound</div>
+        <div class="fc-desc">Blue whale calls below 20 Hz are felt as pressure, not heard as sound. The vibrations simulate this physical phenomenon on your body.</div>
+      </div>
+      <div class="feeling-card">
+        <div class="fc-icon">📳</div>
+        <div class="fc-title">Haptic Synchrony</div>
+        <div class="fc-desc">Each vibration pulse is manually timed to the audio's peak moments — the exact instants of maximum acoustic pressure in the whale's call.</div>
+      </div>
+      <div class="feeling-card">
+        <div class="fc-icon">🌊</div>
+        <div class="fc-title">Ocean Pressure</div>
+        <div class="fc-desc">In the deep ocean, whale song isn't just heard — it's felt through the body. This experience brings that sensation to the surface.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Thank you / closing section -->
+  <section class="thankyou-section">
+    <div class="ty-ornament">✦ ✦ ✦</div>
+    <h2 class="ty-title">Thank You</h2>
+    <p class="ty-text">
+      You have seen its bones. Heard its voice. Felt its presence.<br/>
+      The blue whale that rests in this hall once roamed the Indian Ocean —<br/>
+      the same waters that surround this island.
+    </p>
+    <p class="ty-quote">
+      "In the ocean, nothing exists in isolation."
+    </p>
+    <div class="ty-credit">
+      <p>An immersive experience by</p>
+      <p class="ty-team">Colombo National Museum · Interactive Experience Project · 2025</p>
+    </div>
+
+    <!-- Restart experience -->
+    <a href="index.html" class="restart-btn">
+      <span>RESTART EXPERIENCE</span>
+      <span>↺</span>
+    </a>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/7.8.4/wavesurfer.min.js"></script>
+  <script src="js/page3.js"></script>
+</body>
+</html>
