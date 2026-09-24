@@ -4,22 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>See — Beneath the Bones</title>
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
-
-  <!-- Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
   <link rel="stylesheet" href="css/global.css" />
   <link rel="stylesheet" href="css/page1.css" />
-
-  <!-- model-viewer -->
-  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
 </head>
 <body>
 
-  <!-- ── NAV ── -->
   <nav class="site-nav">
     <a href="index.html" class="nav-link">Home</a>
     <a href="page1.html" class="nav-link active">See</a>
@@ -27,194 +20,129 @@
     <a href="page3.html" class="nav-link">Feel</a>
   </nav>
 
-  <!-- ══════════════════════════════════════
-       HERO — 3D MODEL VIEWER
-  ══════════════════════════════════════ -->
+  <!-- ── HERO: MODEL VIEWER ── -->
   <section class="see-hero">
-    <p class="see-label">The Exhibit</p>
-    <h1 class="see-title">See the Skeleton</h1>
-    <p class="see-caption">Step inside the skeleton. Explore every bone of the ocean's largest creature.</p>
+    <div class="section-label">VISUAL EXPERIENCE</div>
+    <h1 class="see-title">SEE</h1>
+    <p class="see-caption">Witness the transformation — skeleton to living giant</p>
 
-    <!-- FIX 1: border via CSS on .model-wrapper -->
     <div class="model-wrapper">
       <model-viewer
-        id="mainViewer"
+        id="whaleModel"
         src="assets/models/whale-transform.glb"
-        alt="Blue whale skeleton 3D model"
-        camera-controls
+        alt="Blue whale 3D model"
         auto-rotate
-        auto-rotate-delay="1000"
-        rotation-per-second="8deg"
-        shadow-intensity="1"
-        exposure="0.9"
-        style="width:100%;height:100%;">
-      </model-viewer>
-
-      <!-- FIX 2: zoom/pinch gesture hint -->
-      <div class="gesture-hint" id="gestureHint">
-        <!-- pinch icon -->
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" color="#C9A84C">
-          <path d="M9 9c0-1.1.9-2 2-2s2 .9 2 2v3"/>
-          <path d="M13 12V9"/>
-          <path d="M7 11V9a2 2 0 0 1 2-2"/>
-          <path d="M15 11V9a2 2 0 0 1 2 2v3l-4 5H9l-3-3"/>
-        </svg>
-        <span>Drag to rotate &nbsp;·&nbsp; Pinch to zoom</span>
-      </div>
-    </div>
-
-    <button class="pill-btn" onclick="toggleAnimation()">PLAY ANIMATION</button>
-  </section>
-
-  <!-- ══════════════════════════════════════
-       ABOUT THE SPECIMEN
-  ══════════════════════════════════════ -->
-  <section class="specimen-section">
-
-    <!-- FIX 3: center-aligned label + title + intro -->
-    <p class="specimen-label">About the Specimen</p>
-    <h2 class="specimen-title">The Blue Whale of Colombo</h2>
-
-    <p class="specimen-intro">
-      Suspended in the grand hall of the Colombo National Museum, the blue whale skeleton stands as
-      one of South Asia's most extraordinary natural history exhibits. Measuring over 27 metres in
-      length, this specimen was recovered from the waters off Sri Lanka's southern coast and has
-      captivated visitors since 1914. Its presence is a silent testament to the immensity of life
-      that thrives beneath the Indian Ocean.
-    </p>
-    <p class="specimen-intro">
-      The skeleton was carefully articulated and mounted over several years, preserving the natural
-      curvature of the animal's spine. Each of the more than 200 bones tells a story — of feeding
-      frenzies in cold Antarctic waters, of migrations spanning thousands of kilometres, and of a
-      creature whose heart alone weighs as much as a small car.
-    </p>
-
-    <!-- ROW 1 — text LEFT, image RIGHT -->
-    <div class="specimen-row">
-      <div class="specimen-text">
-        <h3>Unknown Facts About the Bones</h3>
-        <p>
-          Blue whale bones are far from solid — they are highly porous and saturated with lipids,
-          functioning as buoyancy aids in life. This oily interior made whale skeletons notoriously
-          difficult to preserve; early museum specimens often became greasy and odorous decades
-          after mounting.
-        </p>
-        <p>
-          The Colombo specimen's mandible alone stretches over five metres. The skull, which
-          represents nearly a quarter of total body length, houses a rostrum broad enough for a
-          person to lie flat across. Remarkably, blue whales have no teeth — the keratin baleen
-          plates that once filtered krill have long since decomposed, leaving only the bony
-          structures of the jaw.
-        </p>
-        <p>
-          Scientists can estimate a whale's age from its earwax plug — a layered column that
-          accumulates throughout the animal's life much like tree rings. Chemical analysis of these
-          plugs has also revealed hormonal surges, stress events, and even contaminant exposure
-          over a lifetime.
-        </p>
-      </div>
-      <!-- FIX 4: image uses height:100% + object-fit:cover to match text column -->
-      <div class="specimen-image">
-        <img src="assets/images/whale-bones-facts.jpg" alt="Blue whale bone infographic" />
-      </div>
-    </div>
-
-    <!-- ROW 2 — FIX 5: image LEFT, text RIGHT (elements physically swapped) -->
-    <div class="specimen-row">
-      <div class="specimen-image">
-        <img src="assets/images/whale-myths.jpg" alt="Whale myths illustration" />
-      </div>
-      <div class="specimen-text">
-        <h3>Myths &amp; Findings</h3>
-        <p>
-          For centuries, blue whales were the stuff of maritime legend. Sailors who encountered
-          their vast, dark shapes at the surface mistook them for sea monsters or living islands.
-          In Sri Lankan coastal tradition, the whale's breath — a vapour column rising six metres
-          into the air — was thought to be the exhalation of a divine serpent guarding the ocean's
-          depths.
-        </p>
-        <p>
-          Modern science has replaced myth with marvels no less astonishing. Research vessels off
-          the Sri Lankan coast have documented blue whales producing calls as low as 14 hertz —
-          below human hearing — that can travel thousands of kilometres through deep-ocean sound
-          channels. The Colombo specimen may have communicated with whales as far away as the
-          coasts of Oman or Madagascar.
-        </p>
-        <p>
-          Genetic studies have also revealed that the Northern Indian Ocean blue whale population
-          is genetically distinct from those of the Antarctic and North Pacific, suggesting
-          centuries of reproductive isolation shaped by the subcontinent's landmass.
-        </p>
-      </div>
-    </div>
-
-  </section>
-
-  <!-- ══════════════════════════════════════
-       ANATOMY OF A GIANT
-  ══════════════════════════════════════ -->
-  <section class="anatomy-section">
-    <h2 class="anatomy-title">Anatomy of a Giant</h2>
-
-    <div class="anatomy-model-wrapper">
-      <model-viewer
-        src="assets/models/whale-anatomy.glb"
-        alt="Blue whale anatomy 3D model"
         camera-controls
-        auto-rotate
-        auto-rotate-delay="800"
-        rotation-per-second="6deg"
         shadow-intensity="0.8"
         exposure="0.9"
-        style="width:100%;height:100%;">
+        environment-image="neutral"
+        style="width:100%;height:100%;background:transparent;"
+      ></model-viewer>
+    </div>
 
-        <!-- Hotspot example buttons — adjust data-position values to your GLB -->
-        <button class="hotspot" slot="hotspot-skull" data-position="2 1.5 0" data-normal="0 1 0">Skull</button>
-        <button class="hotspot" slot="hotspot-flippers" data-position="-2 0 1" data-normal="0 1 0">Flippers</button>
-        <button class="hotspot" slot="hotspot-spine" data-position="0 1 0" data-normal="0 1 0">Spine</button>
-      </model-viewer>
+    <button class="pill-btn" onclick="toggleAnimation()">
+      <span id="animIcon">▶</span>&nbsp;&nbsp;<span id="animLabel">PLAY ANIMATION</span>
+    </button>
+  </section>
+
+  <!-- ── ABOUT THE SPECIMEN ── -->
+  <section class="specimen-section">
+    <div class="specimen-inner">
+
+      <div class="section-label">ABOUT THE SPECIMEN</div>
+      <h2 class="specimen-title">The Blue Whale of Colombo</h2>
+
+      <!-- Full-width intro -->
+      <div class="specimen-intro">
+        <p>The blue whale skeleton housed in the Colombo National Museum is one of the most remarkable natural history specimens in South Asia. Measuring approximately 27 metres in length and estimated to have weighed over 100 tonnes in life, this specimen was acquired in 1914 following a stranding along the Sri Lankan coast. Over a century later, it remains the centrepiece of the museum's natural history collection — a monument to the ocean's most extraordinary creature.</p>
+        <p>The skeleton was painstakingly cleaned, articulated, and suspended by the museum's curators over several years. Its bones — bleached pale by time — retain the characteristic shape of the largest animal species ever known to have existed on Earth. The skull alone spans nearly 6 metres, while the elongated ribcage speaks to the immense lung capacity required to sustain a creature that breathes air yet lives entirely beneath the sea.</p>
+      </div>
+
+      <!-- Row 1: Text left, Image right -->
+      <div class="specimen-row">
+        <div class="specimen-text">
+          <h3 class="specimen-sub">Unknown Facts About the Bones</h3>
+          <p>What many visitors do not realise is that blue whale bones are not solid — they are filled with oil-saturated spongy tissue, an adaptation that helps the living whale regulate buoyancy. This makes the skeleton extraordinarily lightweight relative to its immense size. The fossilised oil content is what gives aged blue whale bones their distinctive yellowish hue over time.</p>
+          <p>The vertebral column contains over 60 individual vertebrae, many as wide as a dining table. Each one bears the compression marks of carrying a body heavier than any land animal could support. The flippers — five-fingered beneath the skin — tell the evolutionary story of a land mammal that returned to the sea over 50 million years ago.</p>
+        </div>
+        <div class="specimen-image">
+          <img src="assets/images/whale-bones-facts.jpg" alt="Blue whale bone details" />
+          <span class="img-caption">Detail of the vertebral column — Colombo National Museum</span>
+        </div>
+      </div>
+
+      <!-- Row 2: Image left, Text right -->
+      <div class="specimen-row reverse">
+        <div class="specimen-image">
+          <img src="assets/images/whale-myths.jpg" alt="Whale skeleton myths" />
+          <span class="img-caption">The skull and rostrum — measuring nearly 6 metres</span>
+        </div>
+        <div class="specimen-text">
+          <h3 class="specimen-sub">Myths &amp; Findings</h3>
+          <p>For generations, local fishermen along Sri Lanka's southern coast held beliefs that stranded blue whales were signs of abundance — that where a giant fell, the sea would give generously for years to come. The 1914 stranding near Mirissa became part of regional folklore long before the specimen reached the museum.</p>
+          <p>Modern research has revealed that blue whale strandings are often linked to sonar interference or changes in ocean temperature. Studies of the Colombo specimen have contributed to understanding of 19th-century Indian Ocean whale populations — bone density analysis suggests this individual was approximately 70–80 years of age at the time of death.</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════
-       NEXT EXPERIENCE
-  ══════════════════════════════════════ -->
-  <section class="next-section">
-    <p class="next-label">Next Experience</p>
-    <h2 class="next-title">Hear the Whale</h2>
-    <p class="next-caption">Explore the vocalisations of the blue whale</p>
-    <a href="page2.html" class="pill-btn">HEAR THE WHALE &rarr;</a>
+  <!-- ── ANATOMY OF A GIANT ── -->
+  <section class="anatomy-section">
+    <div class="anatomy-inner">
+      <div class="section-label">EXPLORE IN 3D</div>
+      <h2 class="anatomy-title">Anatomy of a Giant</h2>
+      <p class="anatomy-subtitle">Interact with the annotated skeleton — tap any numbered point to discover what lies beneath</p>
+
+      <div class="anatomy-model-wrapper">
+        <model-viewer
+          id="anatomyModel"
+          src="assets/models/whale-anatomy.glb"
+          alt="Annotated blue whale skeleton"
+          auto-rotate
+          camera-controls
+          shadow-intensity="0.6"
+          exposure="1"
+          environment-image="neutral"
+          style="width:100%;height:100%;background:transparent;"
+        >
+          <button slot="hotspot-1" data-position="0 1.5 0" data-normal="0 1 0" class="hotspot">
+            <span class="hotspot-num">1</span>
+            <div class="hotspot-card">
+              <strong>Rostrum</strong>
+              <p>The elongated upper jaw — used to filter krill through baleen plates</p>
+            </div>
+          </button>
+          <button slot="hotspot-2" data-position="-2 1 0.5" data-normal="0 1 0" class="hotspot">
+            <span class="hotspot-num">2</span>
+            <div class="hotspot-card">
+              <strong>Pectoral Fins</strong>
+              <p>Five finger-like bones beneath the skin — evidence of ancient land-dwelling ancestors</p>
+            </div>
+          </button>
+          <button slot="hotspot-3" data-position="5 0.8 0" data-normal="0 1 0" class="hotspot">
+            <span class="hotspot-num">3</span>
+            <div class="hotspot-card">
+              <strong>Tail Flukes</strong>
+              <p>No bones here — the flukes are pure muscle and connective tissue</p>
+            </div>
+          </button>
+        </model-viewer>
+      </div>
+    </div>
   </section>
 
-  <!-- ── SCRIPTS ── -->
-  <script>
-    /* Animation toggle for hero model */
-    const modelViewer = document.getElementById('mainViewer');
-    let isPlaying = false;
+  <!-- ── NEXT EXPERIENCE ── -->
+  <section class="next-section">
+    <div class="next-inner">
+      <div class="section-label">NEXT EXPERIENCE</div>
+      <h2 class="next-title">Hear the Whale</h2>
+      <p class="next-text">Explore the vocalisations of the blue whale — sounds that travel across entire ocean basins</p>
+      <a href="page2.html" class="pill-btn">HEAR THE WHALE &nbsp;&nbsp;→</a>
+    </div>
+  </section>
 
-    function toggleAnimation() {
-      if (!isPlaying) {
-        modelViewer.play({ repetitions: 1 });
-        modelViewer.autoRotate = false;
-        isPlaying = true;
-        document.querySelector('.see-hero .pill-btn').textContent = 'STOP ANIMATION';
-      } else {
-        modelViewer.pause();
-        modelViewer.currentTime = 0;
-        modelViewer.autoRotate = true;
-        isPlaying = false;
-        document.querySelector('.see-hero .pill-btn').textContent = 'PLAY ANIMATION';
-      }
-    }
-
-    /* Hide gesture hint when user first interacts with model */
-    modelViewer.addEventListener('camera-change', () => {
-      const hint = document.getElementById('gestureHint');
-      if (hint) hint.style.opacity = '0';
-    }, { once: true });
-  </script>
-
-  <!-- Nav hide on scroll -->
+  <script src="js/page1.js"></script>
   <script>
     const nav = document.querySelector('.site-nav');
     let lastScroll = 0;
@@ -228,6 +156,5 @@
       lastScroll = current;
     });
   </script>
-
 </body>
 </html>
