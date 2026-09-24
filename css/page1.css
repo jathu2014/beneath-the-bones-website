@@ -168,10 +168,12 @@ model-viewer {
   font-size: 1rem;
   line-height: 1.85;
   color: var(--text-muted);
-  text-align: justify;
-  hyphens: auto;
   margin: 0 0 2rem;
+  hyphens: auto;
 }
+
+.specimen-intro.align-left  { text-align: left; }
+.specimen-intro.align-right { text-align: right; }
 
 /* ── CONTENT ROWS ── */
 .specimen-row {
