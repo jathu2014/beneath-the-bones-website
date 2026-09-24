@@ -48,7 +48,15 @@
         shadow-intensity="1"
         exposure="0.9"
         style="width:100%;height:100%;">
-      </model-viewer>
+
+  <!-- Loading poster — auto-hides when model is ready -->
+  <div slot="poster" class="model-poster">
+    <div class="model-loading-ring"></div>
+    <p class="model-loading-text">Loading 3D Model</p>
+    <p class="model-hint-text">Drag to rotate &nbsp;·&nbsp; Pinch to zoom</p>
+  </div>
+
+</model-viewer>
 
       <!-- FIX 2: zoom/pinch gesture hint -->
       <div class="gesture-hint" id="gestureHint">
@@ -159,11 +167,14 @@
         exposure="0.9"
         style="width:100%;height:100%;">
 
-        <!-- Hotspot example buttons — adjust data-position values to your GLB -->
-        <button class="hotspot" slot="hotspot-skull" data-position="2 1.5 0" data-normal="0 1 0">Skull</button>
-        <button class="hotspot" slot="hotspot-flippers" data-position="-2 0 1" data-normal="0 1 0">Flippers</button>
-        <button class="hotspot" slot="hotspot-spine" data-position="0 1 0" data-normal="0 1 0">Spine</button>
-      </model-viewer>
+        <!-- Loading poster -->
+        <div slot="poster" class="model-poster">
+          <div class="model-loading-ring"></div>
+          <p class="model-loading-text">Loading 3D Model</p>
+          <p class="model-hint-text">Drag to rotate &nbsp;·&nbsp; Pinch to zoom</p>
+        </div>
+
+    </model-viewer>
     </div>
   </section>
 
