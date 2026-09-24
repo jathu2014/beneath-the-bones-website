@@ -159,9 +159,8 @@ model-viewer {
 }
 
 .specimen-intro-wrap {
-  max-width: 960px;          /* matches the section width so text fills properly */
-  margin: 0 auto 4rem;
-  padding: 0 2rem;
+  width: 100%;
+  margin: 0 0 4rem;
 }
 
 .specimen-intro {
@@ -169,9 +168,8 @@ model-viewer {
   font-size: 1rem;
   line-height: 1.85;
   color: var(--text-muted);
-  text-align: justify;        /* both edges lock to same length */
-  text-align-last: center;    /* keeps the final short line centred */
-  hyphens: auto;              /* breaks long words cleanly to avoid gaps */
+  text-align: justify;
+  hyphens: auto;
   margin: 0 0 2rem;
 }
 
