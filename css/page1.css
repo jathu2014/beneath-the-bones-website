@@ -274,6 +274,183 @@ model-viewer {
   background: rgba(4, 21, 37, 0.6);
 }
 
+
+/* ── HOTSPOT PINS ── */
+.hotspot-pin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  background: rgba(2, 11, 24, 0.78);
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+/* Pulse ring */
+.hotspot-pin::before {
+  content: '';
+  position: absolute;
+  inset: -7px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(201, 168, 76, 0.45);
+  animation: hsPulse 2.2s ease-out infinite;
+  pointer-events: none;
+}
+
+.hotspot-pin.active,
+.hotspot-pin:hover {
+  background: var(--gold);
+  transform: scale(1.18);
+}
+
+.hotspot-pin.active::before,
+.hotspot-pin:hover::before {
+  animation: none;
+  border-color: transparent;
+}
+
+.hotspot-num {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.hotspot-pin.active .hotspot-num,
+.hotspot-pin:hover .hotspot-num {
+  color: var(--deep-ocean);
+}
+
+@keyframes hsPulse {
+  0%   { transform: scale(1);   opacity: 0.6; }
+  70%  { transform: scale(1.6); opacity: 0;   }
+  100% { transform: scale(1.6); opacity: 0;   }
+}
+
+/* ── HOTSPOT INFO CARDS ── */
+.hotspot-card {
+  position: absolute;
+  bottom: 52px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  width: 272px;
+  background: rgba(4, 21, 37, 0.94);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  border-radius: 6px;
+  padding: 1.3rem 1.3rem 1.1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 20;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.hotspot-card.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.hotspot-card-close {
+  position: absolute;
+  top: 0.55rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.15rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s;
+}
+.hotspot-card-close:hover { color: var(--gold); }
+
+.hotspot-card-num {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+
+.hotspot-card-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.07em;
+  color: var(--text-primary);
+  margin: 0 0 0.65rem;
+}
+
+.hotspot-card-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.73rem;
+  line-height: 1.75;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ── HOTSPOT NAV BAR ── */
+.hotspot-nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 1.1rem;
+  background: rgba(2, 11, 24, 0.88);
+  border-top: 1px solid rgba(201, 168, 76, 0.18);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.hotspot-nav.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hotspot-nav-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: var(--text-primary);
+  text-transform: uppercase;
+}
+
+.hotspot-nav-btn {
+  background: none;
+  border: 1px solid rgba(201, 168, 76, 0.35);
+  color: var(--gold);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+  transition: background 0.2s;
+}
+.hotspot-nav-btn:hover { background: rgba(201, 168, 76, 0.14); }
+
+
 /* ── NEXT SECTION ── */
 .next-section {
   background: var(--ocean-mid);

@@ -158,12 +158,10 @@
 
     <div class="anatomy-model-wrapper">
       <model-viewer
+        id="anatomyViewer"
         src="assets/models/whale-anatomy.glb"
         alt="Blue whale anatomy 3D model"
         camera-controls
-        auto-rotate
-        auto-rotate-delay="800"
-        rotation-per-second="6deg"
         shadow-intensity="0.8"
         exposure="0.9"
         style="width:100%;height:100%;">
@@ -172,10 +170,71 @@
         <div slot="poster" class="model-poster">
           <div class="model-loading-ring"></div>
           <p class="model-loading-text">Loading 3D Model</p>
-          <p class="model-hint-text">Drag to rotate &nbsp;·&nbsp; Pinch to zoom</p>
+          <p class="model-hint-text">Drag to rotate &nbsp;&#xB7;&nbsp; Pinch to zoom</p>
         </div>
 
-    </model-viewer>
+        <!-- Hotspot pins pinned to 3D positions -->
+        <button class="hotspot-pin" slot="hotspot-skull"
+          data-position="7.8 0.6 0.2" data-normal="0 1 0"
+          data-card="card-skull" aria-label="Skull">
+          <span class="hotspot-num">1</span>
+        </button>
+
+        <button class="hotspot-pin" slot="hotspot-fins"
+          data-position="3.2 -0.4 2.4" data-normal="0 0 1"
+          data-card="card-fins" aria-label="Pectoral Fins">
+          <span class="hotspot-num">2</span>
+        </button>
+
+        <button class="hotspot-pin" slot="hotspot-spine"
+          data-position="0 1.3 0" data-normal="0 1 0"
+          data-card="card-spine" aria-label="Spine">
+          <span class="hotspot-num">3</span>
+        </button>
+
+        <button class="hotspot-pin" slot="hotspot-tail"
+          data-position="-9.2 0.4 0" data-normal="0 1 0"
+          data-card="card-tail" aria-label="Tail Flukes">
+          <span class="hotspot-num">4</span>
+        </button>
+
+      </model-viewer>
+
+      <!-- Info cards overlaid on wrapper -->
+      <div class="hotspot-card" id="card-skull">
+        <button class="hotspot-card-close" aria-label="Close">&#215;</button>
+        <span class="hotspot-card-num">01</span>
+        <h4 class="hotspot-card-title">Skull</h4>
+        <p class="hotspot-card-text">The blue whale&#8217;s skull stretches over 5 metres and is one of the largest structures in the animal kingdom. Its broad, flat rostrum houses rows of baleen plates&#8202;&#8212;&#8202;keratin filters that strain millions of krill from each mouthful of ocean water.</p>
+      </div>
+
+      <div class="hotspot-card" id="card-fins">
+        <button class="hotspot-card-close" aria-label="Close">&#215;</button>
+        <span class="hotspot-card-num">02</span>
+        <h4 class="hotspot-card-title">Pectoral Fins</h4>
+        <p class="hotspot-card-text">Inside each flipper lie the same bones found in a human arm&#8202;&#8212;&#8202;humerus, radius, ulna and digits&#8202;&#8212;&#8202;radically remodelled by evolution. Up to 3 metres long, these paddle-like fins provide precise steering and stability at depth.</p>
+      </div>
+
+      <div class="hotspot-card" id="card-spine">
+        <button class="hotspot-card-close" aria-label="Close">&#215;</button>
+        <span class="hotspot-card-num">03</span>
+        <h4 class="hotspot-card-title">Spine</h4>
+        <p class="hotspot-card-text">Around 64 vertebrae run the length of the blue whale&#8217;s body. The cervical vertebrae are fused&#8202;&#8212;&#8202;common to all cetaceans&#8202;&#8212;&#8202;while the massive lumbar and caudal vertebrae anchor the muscles that power the whale&#8217;s vertical tail-stroke.</p>
+      </div>
+
+      <div class="hotspot-card" id="card-tail">
+        <button class="hotspot-card-close" aria-label="Close">&#215;</button>
+        <span class="hotspot-card-num">04</span>
+        <h4 class="hotspot-card-title">Tail Flukes</h4>
+        <p class="hotspot-card-text">Unlike fish, whales drive themselves with a vertical tail beat. The caudal vertebrae diminish progressively toward the flukes, ending in tiny chevron bones embedded in cartilaginous tissue. A single downstroke propels 150 tonnes forward by several metres.</p>
+      </div>
+
+      <!-- Hotspot navigation bar -->
+      <div class="hotspot-nav" id="hotspotNav">
+        <button class="hotspot-nav-btn" id="hotspotPrev" aria-label="Previous">&#8249;</button>
+        <span class="hotspot-nav-label" id="hotspotNavLabel">Select a marker to explore</span>
+        <button class="hotspot-nav-btn" id="hotspotNext" aria-label="Next">&#8250;</button>
+      </div>
     </div>
   </section>
 
@@ -216,6 +275,62 @@
       if (hint) hint.style.opacity = '0';
     }, { once: true });
   </script>
+
+
+    /* ── ANATOMY HOTSPOTS ── */
+    (function () {
+      const HOTSPOTS = [
+        { cardId: 'card-skull',  slot: 'hotspot-skull',  label: 'Skull'          },
+        { cardId: 'card-fins',   slot: 'hotspot-fins',   label: 'Pectoral Fins'  },
+        { cardId: 'card-spine',  slot: 'hotspot-spine',  label: 'Spine'          },
+        { cardId: 'card-tail',   slot: 'hotspot-tail',   label: 'Tail Flukes'    },
+      ];
+      let activeIdx = -1;
+
+      function openCard(idx) {
+        // close all
+        HOTSPOTS.forEach((h) => {
+          document.getElementById(h.cardId)?.classList.remove('visible');
+          document.querySelector(`[slot="${h.slot}"]`)?.classList.remove('active');
+        });
+
+        if (idx === activeIdx || idx < 0 || idx >= HOTSPOTS.length) {
+          activeIdx = -1;
+          document.getElementById('hotspotNav').classList.remove('active');
+          return;
+        }
+
+        activeIdx = idx;
+        const h = HOTSPOTS[idx];
+        document.getElementById(h.cardId).classList.add('visible');
+        document.querySelector(`[slot="${h.slot}"]`)?.classList.add('active');
+        document.getElementById('hotspotNavLabel').textContent = h.label;
+        document.getElementById('hotspotNav').classList.add('active');
+      }
+
+      // Pin clicks
+      document.querySelectorAll('.hotspot-pin').forEach((pin) => {
+        pin.addEventListener('click', () => {
+          const idx = HOTSPOTS.findIndex((h) => h.cardId === pin.dataset.card);
+          openCard(idx === activeIdx ? -1 : idx);
+        });
+      });
+
+      // Close buttons
+      document.querySelectorAll('.hotspot-card-close').forEach((btn) => {
+        btn.addEventListener('click', (e) => { e.stopPropagation(); openCard(-1); });
+      });
+
+      // Nav arrows
+      document.getElementById('hotspotPrev')?.addEventListener('click', () => {
+        const prev = activeIdx < 0 ? 0 : (activeIdx - 1 + HOTSPOTS.length) % HOTSPOTS.length;
+        openCard(prev);
+      });
+      document.getElementById('hotspotNext')?.addEventListener('click', () => {
+        const next = activeIdx < 0 ? 0 : (activeIdx + 1) % HOTSPOTS.length;
+        openCard(next);
+      });
+    })();
 
   <!-- Nav hide on scroll -->
   <script>
