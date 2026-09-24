@@ -158,21 +158,10 @@ model-viewer {
   margin: 0 0 2rem;
 }
 
-.specimen-intro {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1rem;
-  line-height: 1.85;
-  color: var(--text-muted);
-  max-width: 780px;
-  margin: 0 auto 4rem;          /* FIX 3: auto sides centres it */
-  text-align: center;           /* FIX 3 */
-}
-
-/* Fixed-width column so both paragraphs share the same edges */
 .specimen-intro-wrap {
-  width: 680px;
-  max-width: 90%;          /* collapses on mobile */
+  max-width: 960px;          /* matches the section width so text fills properly */
   margin: 0 auto 4rem;
+  padding: 0 2rem;
 }
 
 .specimen-intro {
@@ -180,9 +169,10 @@ model-viewer {
   font-size: 1rem;
   line-height: 1.85;
   color: var(--text-muted);
-  text-align: center;
-  margin: 0 0 1.8rem;
-  text-wrap: balance;
+  text-align: justify;        /* both edges lock to same length */
+  text-align-last: center;    /* keeps the final short line centred */
+  hyphens: auto;              /* breaks long words cleanly to avoid gaps */
+  margin: 0 0 2rem;
 }
 
 /* ── CONTENT ROWS ── */
