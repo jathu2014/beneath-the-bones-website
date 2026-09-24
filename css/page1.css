@@ -218,6 +218,33 @@ model-viewer {
   margin: 0 0 1rem;
 }
 
+/* Heading above the row grid */
+.specimen-row-heading {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--text-primary);
+  margin: 0 0 1.2rem;
+}
+
+/* Row 2 header mirrors the grid so heading sits above the right column */
+.specimen-row-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  margin-bottom: 1.2rem;
+}
+
+/* Row 1 infographic — no cropping */
+.img-contain {
+  object-fit: contain !important;
+  object-position: center;
+}
+
+/* Remove h3 from inside specimen-text since headings are now above */
+.specimen-text h3 { display: none; } 
+
 /* ── ANATOMY SECTION ── */
 .anatomy-section {
   max-width: 1100px;
