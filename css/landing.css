@@ -77,9 +77,9 @@
 
 .hero-museum-name {
   font-family: 'Poppins', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 400;
-  letter-spacing: 0.4em;
+  font-size: 1rem;          /* was 0.75rem — increase this */
+  font-weight: 500;
+  letter-spacing: 0.35em;
   text-transform: uppercase;
   color: var(--gold);
   opacity: 0.9;
@@ -98,13 +98,14 @@
 }
 
 .hero-caption {
-  font-family: 'Poppins', sans-serif;
-  font-size: clamp(0.9rem, 2vw, 1.15rem);
-  font-weight: 300;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);   /* slightly bigger too */
+  font-weight: 400;
   color: #ffffff;
-  opacity: 0.85;
+  opacity: 0.9;
   margin: 0;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.03em;
 }
 
 .hero-btn {
