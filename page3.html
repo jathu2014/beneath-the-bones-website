@@ -11,6 +11,19 @@
   <link rel="stylesheet" href="css/global.css" />
   <link rel="stylesheet" href="css/page3.css" />
 </head>
+<script>
+  const nav = document.querySelector('.site-nav');
+  let lastScroll = 0;
+  window.addEventListener('scroll', () => {
+    const current = window.scrollY;
+    if (current > lastScroll && current > 80) {
+      nav.classList.add('nav-hidden');
+    } else {
+      nav.classList.remove('nav-hidden');
+    }
+    lastScroll = current;
+  });
+</script>
 <body>
 
   <nav class="site-nav">

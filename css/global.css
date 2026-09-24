@@ -43,21 +43,26 @@
     border-radius: 2px;
   }
   /* ── SITE NAV (inner pages) ───────────────────────────── */
-.site-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  padding: 1.2rem 3rem;
-  background: rgba(2, 11, 24, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(201, 168, 76, 0.12);
-}
+  .site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 1.2rem 3rem;
+    background: rgba(2, 11, 24, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transform: translateY(0);
+    transition: transform 0.4s ease;
+  }
+  
+  .site-nav.nav-hidden {
+    transform: translateY(-100%);
+  }
 
 .site-nav .nav-link {
   font-family: 'Poppins', sans-serif;
