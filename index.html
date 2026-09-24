@@ -5,89 +5,84 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Beneath the Bones</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/global.css" />
   <link rel="stylesheet" href="css/landing.css" />
 </head>
 <body>
 
-  <!-- Particle canvas background -->
-  <canvas id="particles"></canvas>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <img src="assets/images/museum-hero.jpg" alt="Colombo National Museum" class="hero-bg" />
 
-  <!-- Ambient ocean glow -->
-  <div class="ocean-glow"></div>
+    <nav class="hero-nav">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="page1.html" class="nav-link">See</a>
+      <a href="page2.html" class="nav-link">Hear</a>
+      <a href="page3.html" class="nav-link">Feel</a>
+    </nav>
 
-  <!-- Main landing content -->
-  <main class="landing-container">
-
-    <!-- Museum badge -->
-    <div class="museum-badge">
-      <span>COLOMBO NATIONAL MUSEUM</span>
+    <div class="hero-content">
+      <p class="hero-museum-name">Colombo National Museum</p>
+      <h1 class="hero-title">Beneath the Bones</h1>
+      <p class="hero-caption">An immersive encounter with the ocean's last giant</p>
+      <a href="page1.html" class="hero-btn">Begin the Experience</a>
     </div>
+  </section>
 
-    <!-- Title block -->
-    <div class="title-block">
-      <h1 class="main-title">
-        <span class="title-line-1">BENEATH</span>
-        <span class="title-divider">✦</span>
-        <span class="title-line-2">THE BONES</span>
-      </h1>
-      <p class="subtitle">An Immersive Journey into the Blue Whale</p>
-    </div>
+  <!-- ABOUT -->
+  <section class="about-section">
+    <div class="about-inner">
 
-    <!-- Decorative whale silhouette -->
-    <div class="whale-silhouette">
-      <svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
-        <path d="M 50 120 Q 150 60 300 80 Q 420 95 500 70 Q 540 60 560 80 Q 530 100 510 110 Q 560 115 580 130 Q 550 140 500 130 Q 420 150 300 140 Q 150 160 80 150 Q 40 145 20 160 Q 30 135 50 120 Z" 
-              fill="none" stroke="rgba(180,140,60,0.3)" stroke-width="1.5"/>
-        <!-- Tail fin -->
-        <path d="M 20 160 Q 5 145 10 130 Q 25 140 35 135 Q 15 120 25 108 Q 45 125 50 120"
-              fill="none" stroke="rgba(180,140,60,0.3)" stroke-width="1.5"/>
-        <!-- Eye -->
-        <circle cx="480" cy="90" r="4" fill="rgba(180,140,60,0.4)"/>
-        <!-- Pectoral fin -->
-        <path d="M 380 105 Q 370 150 340 155 Q 360 120 380 105 Z"
-              fill="rgba(180,140,60,0.15)" stroke="rgba(180,140,60,0.3)" stroke-width="1"/>
-      </svg>
-    </div>
-
-    <!-- Experience intro text -->
-    <p class="intro-text">
-      Step beyond the skeleton.<br/>
-      See it breathe. Hear it call. Feel its presence.
-    </p>
-
-    <!-- Begin button -->
-    <a href="page1.html" class="begin-btn">
-      <span class="btn-text">BEGIN THE EXPERIENCE</span>
-      <span class="btn-arrow">→</span>
-    </a>
-
-    <!-- Experience steps indicator -->
-    <div class="experience-steps">
-      <div class="step">
-        <div class="step-icon">👁</div>
-        <div class="step-label">SEE</div>
+      <div class="about-grid">
+        <div class="about-col">
+          <h2 class="about-heading">The Museum</h2>
+          <p class="about-text">
+            The Colombo National Museum, founded in 1877, stands as Sri Lanka's largest and most
+            significant museum. Within its storied halls rests one of the rarest treasures in the
+            natural world — the skeletal remains of a blue whale, the largest creature ever to
+            have lived on Earth.
+          </p>
+        </div>
+        <div class="about-col">
+          <h2 class="about-heading">The Project</h2>
+          <p class="about-text">
+            <em>Beneath the Bones</em> is a multi-sensory digital experience designed to bring
+            this ancient giant back to life. Through sight, sound, and touch, visitors are invited
+            to step beyond the skeleton and feel the living presence of the blue whale — its
+            movement, its voice, its sheer enormity.
+          </p>
+        </div>
       </div>
-      <div class="step-connector">—</div>
-      <div class="step">
-        <div class="step-icon">🎵</div>
-        <div class="step-label">HEAR</div>
+
+      <div class="stat-row">
+        <div class="stat-item">
+          <span class="stat-number">27m</span>
+          <span class="stat-label">Length</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">150T</span>
+          <span class="stat-label">Weight</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">1914</span>
+          <span class="stat-label">Year Acquired</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">800km</span>
+          <span class="stat-label">Migration Range</span>
+        </div>
       </div>
-      <div class="step-connector">—</div>
-      <div class="step">
-        <div class="step-icon">✦</div>
-        <div class="step-label">FEEL</div>
-      </div>
+
     </div>
+  </section>
 
-  </main>
-
-  <!-- Footer -->
-  <footer class="landing-footer">
-    <p>Colombo National Museum · Immersive Experience Project · 2025</p>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p class="footer-text">Colombo National Museum &nbsp;·&nbsp; Beneath the Bones &nbsp;·&nbsp; 2025</p>
   </footer>
 
-  <script src="js/landing.js"></script>
 </body>
 </html>
