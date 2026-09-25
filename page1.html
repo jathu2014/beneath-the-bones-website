@@ -175,31 +175,36 @@
 
         <!-- Hotspot pins pinned to 3D positions -->
         <button class="hotspot-pin" slot="hotspot-skull"
-          data-position="5.5 0.5 1.5" data-normal="0 1 0"
+          data-position="0 -4 0.2" data-normal="0 0 1"
+          data-target="0m -4.9m -2.1m" data-orbit="30deg 80deg 18m"
           data-card="card-skull" aria-label="Skull">
           <span class="hotspot-num">1</span>
         </button>
 
         <button class="hotspot-pin" slot="hotspot-fins"
-          data-position="2.5 -1.0 1.8" data-normal="0 0 1"
+          data-position="-6.5 3.4 0.5" data-normal="-1 0 0"
+          data-target="-4.1m 3.4m 0.5m" data-orbit="-90deg 85deg 14m"
           data-card="card-fins" aria-label="Pectoral Fins">
           <span class="hotspot-num">2</span>
         </button>
 
         <button class="hotspot-pin" slot="hotspot-spine"
-          data-position="0 1.5 0.5" data-normal="0 1 0"
+          data-position="0 12.2 8.2" data-normal="0 0 1"
+          data-target="0m 12.2m 6.3m" data-orbit="0deg 70deg 16m"
           data-card="card-spine" aria-label="Spine">
           <span class="hotspot-num">3</span>
         </button>
 
         <button class="hotspot-pin" slot="hotspot-tail"
-          data-position="-5.5 3.0 -0.5" data-normal="0 1 0"
+          data-position="0 27 5.5" data-normal="0 1 0"
+          data-target="0m 22.9m 5.6m" data-orbit="0deg 80deg 14m"
           data-card="card-tail" aria-label="Tail Flukes">
           <span class="hotspot-num">4</span>
         </button>
 
         <button class="hotspot-pin" slot="hotspot-baleen"
-          data-position="6.8 0.8 0.5" data-normal="0 1 0"
+          data-position="0 -7.5 -4.7" data-normal="0 -1 0"
+          data-target="0m -4.4m -4.7m" data-orbit="-20deg 95deg 15m"
           data-card="card-baleen" aria-label="Baleen">
           <span class="hotspot-num">5</span>
         </button>
@@ -294,13 +299,45 @@
     /* ── ANATOMY HOTSPOTS ── */
     (function () {
       const HOTSPOTS = [
-        { cardId: 'card-skull',   slot: 'hotspot-skull',   label: 'Skull'          },
-        { cardId: 'card-fins',    slot: 'hotspot-fins',    label: 'Pectoral Fins'  },
-        { cardId: 'card-spine',   slot: 'hotspot-spine',   label: 'Spine'          },
-        { cardId: 'card-tail',    slot: 'hotspot-tail',    label: 'Tail Flukes'    },
-        { cardId: 'card-baleen',  slot: 'hotspot-baleen',  label: 'Baleen Plates'  },
+        {
+          cardId: 'card-skull',  slot: 'hotspot-skull',  label: 'Skull',
+          cameraTarget: '0m -4.9m -2.1m', cameraOrbit: '30deg 80deg 18m'
+        },
+        {
+          cardId: 'card-fins',   slot: 'hotspot-fins',   label: 'Pectoral Fins',
+          cameraTarget: '-4.1m 3.4m 0.5m', cameraOrbit: '-90deg 85deg 14m'
+        },
+        {
+          cardId: 'card-spine',  slot: 'hotspot-spine',  label: 'Spine',
+          cameraTarget: '0m 12.2m 6.3m', cameraOrbit: '0deg 70deg 16m'
+        },
+        {
+          cardId: 'card-tail',   slot: 'hotspot-tail',   label: 'Tail Flukes',
+          cameraTarget: '0m 22.9m 5.6m', cameraOrbit: '0deg 80deg 14m'
+        },
+        {
+          cardId: 'card-baleen', slot: 'hotspot-baleen', label: 'Baleen Plates',
+          cameraTarget: '0m -4.4m -4.7m', cameraOrbit: '-20deg 95deg 15m'
+        },
       ];
       let activeIdx = -1;
+      const mv = document.getElementById('anatomyViewer');
+
+      function focusCamera(h) {
+        if (!mv) return;
+        try {
+          mv.cameraTarget = h.cameraTarget;
+          mv.cameraOrbit  = h.cameraOrbit;
+        } catch(e) {}
+      }
+
+      function resetCamera() {
+        if (!mv) return;
+        try {
+          mv.cameraTarget = 'auto auto auto';
+          mv.cameraOrbit  = 'auto auto auto';
+        } catch(e) {}
+      }
 
       function openCard(idx) {
         // close all
@@ -312,6 +349,7 @@
         if (idx === activeIdx || idx < 0 || idx >= HOTSPOTS.length) {
           activeIdx = -1;
           document.getElementById('hotspotNav').classList.remove('active');
+          resetCamera();
           return;
         }
 
@@ -321,6 +359,8 @@
         document.querySelector(`[slot="${h.slot}"]`)?.classList.add('active');
         document.getElementById('hotspotNavLabel').textContent = h.label;
         document.getElementById('hotspotNav').classList.add('active');
+        // 🎯 Animate camera to focus on this bone
+        focusCamera(h);
       }
 
       // Pin clicks
