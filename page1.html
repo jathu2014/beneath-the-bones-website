@@ -175,27 +175,33 @@
 
         <!-- Hotspot pins pinned to 3D positions -->
         <button class="hotspot-pin" slot="hotspot-skull"
-          data-position="7.8 0.6 0.2" data-normal="0 1 0"
+          data-position="5.5 0.5 1.5" data-normal="0 1 0"
           data-card="card-skull" aria-label="Skull">
           <span class="hotspot-num">1</span>
         </button>
 
         <button class="hotspot-pin" slot="hotspot-fins"
-          data-position="3.2 -0.4 2.4" data-normal="0 0 1"
+          data-position="2.5 -1.0 1.8" data-normal="0 0 1"
           data-card="card-fins" aria-label="Pectoral Fins">
           <span class="hotspot-num">2</span>
         </button>
 
         <button class="hotspot-pin" slot="hotspot-spine"
-          data-position="0 1.3 0" data-normal="0 1 0"
+          data-position="0 1.5 0.5" data-normal="0 1 0"
           data-card="card-spine" aria-label="Spine">
           <span class="hotspot-num">3</span>
         </button>
 
         <button class="hotspot-pin" slot="hotspot-tail"
-          data-position="-9.2 0.4 0" data-normal="0 1 0"
+          data-position="-5.5 3.0 -0.5" data-normal="0 1 0"
           data-card="card-tail" aria-label="Tail Flukes">
           <span class="hotspot-num">4</span>
+        </button>
+
+        <button class="hotspot-pin" slot="hotspot-baleen"
+          data-position="6.8 0.8 0.5" data-normal="0 1 0"
+          data-card="card-baleen" aria-label="Baleen">
+          <span class="hotspot-num">5</span>
         </button>
 
       </model-viewer>
@@ -227,6 +233,13 @@
         <span class="hotspot-card-num">04</span>
         <h4 class="hotspot-card-title">Tail Flukes</h4>
         <p class="hotspot-card-text">Unlike fish, whales drive themselves with a vertical tail beat. The caudal vertebrae diminish progressively toward the flukes, ending in tiny chevron bones embedded in cartilaginous tissue. A single downstroke propels 150 tonnes forward by several metres.</p>
+      </div>
+
+      <div class="hotspot-card" id="card-baleen">
+        <button class="hotspot-card-close" aria-label="Close">&#215;</button>
+        <span class="hotspot-card-num">05</span>
+        <h4 class="hotspot-card-title">Baleen Plates</h4>
+        <p class="hotspot-card-text">Instead of teeth, the blue whale possesses up to 400 baleen plates hanging from its upper jaw. These keratin structures &#8212; the same material as human fingernails &#8212; act as a sieve, trapping up to 40 million krill in a single lunge-feeding event.</p>
       </div>
 
       <!-- Hotspot navigation bar -->
@@ -277,13 +290,15 @@
   </script>
 
 
+    <script>
     /* ── ANATOMY HOTSPOTS ── */
     (function () {
       const HOTSPOTS = [
-        { cardId: 'card-skull',  slot: 'hotspot-skull',  label: 'Skull'          },
-        { cardId: 'card-fins',   slot: 'hotspot-fins',   label: 'Pectoral Fins'  },
-        { cardId: 'card-spine',  slot: 'hotspot-spine',  label: 'Spine'          },
-        { cardId: 'card-tail',   slot: 'hotspot-tail',   label: 'Tail Flukes'    },
+        { cardId: 'card-skull',   slot: 'hotspot-skull',   label: 'Skull'          },
+        { cardId: 'card-fins',    slot: 'hotspot-fins',    label: 'Pectoral Fins'  },
+        { cardId: 'card-spine',   slot: 'hotspot-spine',   label: 'Spine'          },
+        { cardId: 'card-tail',    slot: 'hotspot-tail',    label: 'Tail Flukes'    },
+        { cardId: 'card-baleen',  slot: 'hotspot-baleen',  label: 'Baleen Plates'  },
       ];
       let activeIdx = -1;
 
@@ -331,6 +346,7 @@
         openCard(next);
       });
     })();
+  </script>
 
   <!-- Nav hide on scroll -->
   <script>
