@@ -1,47 +1,11 @@
 /* ===== PAGE 2 — HEAR ===== */
 
-/* Reuse nav styles from page1 */
-.top-nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 24px;
-    background: linear-gradient(to bottom, rgba(2,11,24,0.95), transparent);
-    backdrop-filter: blur(4px);
-  }
-  .nav-back {
-    font-family: 'Raleway', sans-serif;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 2px;
-    color: var(--gold);
-    transition: opacity 0.2s;
-  }
-  .nav-back:hover { opacity: 0.7; }
-  .nav-title {
-    font-family: 'Cinzel', serif;
-    font-size: 13px;
-    letter-spacing: 4px;
-    color: var(--text-primary);
-    opacity: 0.7;
-  }
-  .nav-step {
-    font-family: 'Raleway', sans-serif;
-    font-size: 11px;
-    letter-spacing: 2px;
-    color: var(--gold);
-    opacity: 0.8;
-  }
-  
-  /* Page header */
-  .page-header {
+.page-header {
     padding: 100px 24px 40px;
     text-align: center;
   }
   .page-badge {
+    font-family: 'Poppins', sans-serif;
     font-size: 10px;
     font-weight: 500;
     letter-spacing: 4px;
@@ -108,6 +72,7 @@
   }
   .vocal-header { margin-bottom: 40px; }
   .edu-badge {
+    font-family: 'Poppins', sans-serif;
     font-size: 10px;
     font-weight: 500;
     letter-spacing: 4px;
@@ -126,6 +91,7 @@
     margin-bottom: 16px;
   }
   .vocal-intro {
+    font-family: 'Poppins', sans-serif;
     font-size: 14px;
     font-weight: 300;
     line-height: 1.9;
@@ -188,6 +154,7 @@
   }
   .player-header { text-align: center; margin-bottom: 28px; }
   .player-badge {
+    font-family: 'Poppins', sans-serif;
     font-size: 9px;
     letter-spacing: 4px;
     color: var(--gold);
@@ -344,6 +311,7 @@
     line-height: 1;
   }
   .ct-name {
+    font-family: 'Poppins', sans-serif;
     font-size: 13px;
     font-weight: 500;
     letter-spacing: 2px;
@@ -359,6 +327,7 @@
     margin-bottom: 8px;
   }
   .ct-freq {
+    font-family: 'Poppins', sans-serif;
     font-size: 10px;
     letter-spacing: 2px;
     color: rgba(201,168,76,0.5);
@@ -383,7 +352,7 @@
     gap: 12px;
     border: 1px solid var(--gold);
     color: var(--gold);
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 13px;
     font-weight: 500;
     letter-spacing: 3px;

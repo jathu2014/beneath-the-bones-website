@@ -4,25 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hear · Beneath the Bones</title>
+  <!-- Fonts (same set as all pages) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/global.css" />
   <link rel="stylesheet" href="css/page2.css" />
 </head>
-<script>
-  const nav = document.querySelector('.site-nav');
-  let lastScroll = 0;
-  window.addEventListener('scroll', () => {
-    const current = window.scrollY;
-    if (current > lastScroll && current > 80) {
-      nav.classList.add('nav-hidden');
-    } else {
-      nav.classList.remove('nav-hidden');
-    }
-    lastScroll = current;
-  });
-</script>
 <body>
 
   <nav class="site-nav">
@@ -186,5 +174,20 @@
   <!-- WaveSurfer.js CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/7.8.4/wavesurfer.min.js"></script>
   <script src="js/page2.js"></script>
+
+  <!-- Nav hide on scroll -->
+  <script>
+    const nav = document.querySelector('.site-nav');
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const current = window.scrollY;
+      if (current > lastScroll && current > 80) {
+        nav.classList.add('nav-hidden');
+      } else {
+        nav.classList.remove('nav-hidden');
+      }
+      lastScroll = current;
+    });
+  </script>
 </body>
 </html>
