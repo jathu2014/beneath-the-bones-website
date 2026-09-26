@@ -11,15 +11,15 @@
     background: linear-gradient(to bottom, rgba(2,11,24,0.95), transparent);
     backdrop-filter: blur(4px);
   }
-  .nav-back { font-family:'Raleway',sans-serif; font-size:11px; font-weight:500; letter-spacing:2px; color:var(--gold); transition:opacity .2s; }
+  .nav-back { font-family:'Poppins', sans-serif; font-size:11px; font-weight:500; letter-spacing:2px; color:var(--gold); transition:opacity .2s; }
   .nav-back:hover { opacity:.7; }
   .nav-title { font-family:'Cinzel',serif; font-size:13px; letter-spacing:4px; color:var(--text-primary); opacity:.7; }
-  .nav-step { font-family:'Raleway',sans-serif; font-size:11px; letter-spacing:2px; color:var(--gold); opacity:.8; }
+  .nav-step { font-family:'Poppins', sans-serif; font-size:11px; letter-spacing:2px; color:var(--gold); opacity:.8; }
   
   .page-header { padding:100px 24px 20px; text-align:center; }
-  .page-badge { font-size:10px; font-weight:500; letter-spacing:4px; color:var(--gold); border:1px solid var(--gold-dim); display:inline-block; padding:6px 18px; margin-bottom:20px; }
-  .page-title { font-family:'Cinzel',serif; font-size:clamp(60px,15vw,120px); font-weight:900; color:var(--text-primary); letter-spacing:16px; line-height:1; margin-bottom:16px; }
-  .page-subtitle { font-size:clamp(13px,3vw,16px); font-weight:300; color:var(--text-muted); letter-spacing:2px; }
+  .page-badge { font-family:'Poppins', sans-serif; font-size:10px; font-weight:500; letter-spacing:4px; color:var(--gold); border:1px solid var(--gold-dim); display:inline-block; padding:6px 18px; margin-bottom:20px; }
+  .page-title { font-family:'Cinzel', serif; font-size:clamp(60px,15vw,120px); font-weight:400; color:var(--text-primary); letter-spacing:0.12em; line-height:1; margin-bottom:16px; }
+  .page-subtitle { font-family:'Cormorant Garamond', serif; font-style:italic; font-size:clamp(14px,2.5vw,20px); font-weight:400; color:var(--text-muted); letter-spacing:0.04em; }
   
   /* Haptic notice */
   .haptic-notice {
@@ -123,7 +123,7 @@
     padding: 20px 48px;
   }
   .immerse-icon { font-size: 28px; color: var(--gold); }
-  .immerse-text { font-family:'Raleway',sans-serif; font-size:13px; font-weight:500; letter-spacing:4px; color:var(--gold); text-transform:uppercase; }
+  .immerse-text { font-family:'Poppins', sans-serif; font-size:13px; font-weight:500; letter-spacing:4px; color:var(--gold); text-transform:uppercase; }
   .immerse-sub { font-size:10px; letter-spacing:2px; color:var(--text-muted); }
   
   /* Haptic toggle */
@@ -185,8 +185,8 @@
   .feeling-section { padding:0 24px 60px; max-width:900px; margin:0 auto; }
   .feeling-header { text-align:center; margin-bottom:40px; }
   .edu-badge { font-size:10px; font-weight:500; letter-spacing:4px; color:var(--gold); border:1px solid var(--gold-dim); display:inline-block; padding:6px 18px; margin-bottom:20px; }
-  .feeling-title { font-family:'Cinzel',serif; font-size:clamp(20px,5vw,32px); font-weight:700; color:var(--text-primary); letter-spacing:2px; margin-bottom:16px; }
-  .feeling-intro { font-size:14px; font-weight:300; line-height:1.9; color:var(--text-muted); max-width:540px; margin:0 auto; }
+  .feeling-title { font-family:'Cinzel', serif; font-size:clamp(20px,5vw,32px); font-weight:400; color:var(--text-primary); letter-spacing:0.1em; margin-bottom:16px; }
+  .feeling-intro { font-family:'Cormorant Garamond', serif; font-style:italic; font-size:clamp(15px,2vw,18px); font-weight:400; line-height:1.9; color:var(--text-muted); max-width:540px; margin:0 auto; }
   
   .feeling-grid { display:grid; grid-template-columns:1fr; gap:16px; }
   @media(min-width:600px){ .feeling-grid { grid-template-columns:repeat(3,1fr); } }
@@ -199,9 +199,9 @@
   /* Thank you section */
   .thankyou-section { text-align:center; padding:60px 24px 80px; max-width:700px; margin:0 auto; border-top:1px solid var(--gold-dim); }
   .ty-ornament { color:var(--gold); letter-spacing:12px; margin-bottom:24px; opacity:0.5; font-size:12px; }
-  .ty-title { font-family:'Cinzel',serif; font-size:clamp(32px,8vw,60px); font-weight:900; color:var(--text-primary); letter-spacing:8px; margin-bottom:24px; }
-  .ty-text { font-size:14px; font-weight:300; line-height:2; color:var(--text-muted); margin-bottom:28px; }
-  .ty-quote { font-family:'Cinzel',serif; font-size:16px; font-style:italic; color:var(--gold); opacity:0.8; margin-bottom:32px; }
+  .ty-title { font-family:'Cinzel', serif; font-size:clamp(32px,8vw,60px); font-weight:400; color:var(--text-primary); letter-spacing:0.12em; margin-bottom:24px; }
+  .ty-text { font-family:'Cormorant Garamond', serif; font-style:italic; font-size:clamp(15px,2vw,18px); font-weight:400; line-height:2; color:var(--text-muted); margin-bottom:28px; }
+  .ty-quote { font-family:'Cormorant Garamond', serif; font-style:italic; font-size:clamp(16px,2vw,20px); font-weight:400; color:var(--gold); opacity:0.9; margin-bottom:32px; }
   .ty-credit { margin-bottom:40px; }
   .ty-credit p { font-size:11px; color:var(--text-muted); letter-spacing:2px; line-height:2; }
   .ty-team { color:var(--text-primary); opacity:0.7; }
@@ -212,10 +212,32 @@
     gap:12px;
     border:1px solid var(--gold-dim);
     color:var(--text-muted);
-    font-family:'Raleway',sans-serif;
+    font-family:'Poppins', sans-serif;
     font-size:12px;
     letter-spacing:3px;
     padding:14px 32px;
     transition:all .3s;
   }
   .restart-btn:hover { border-color:var(--gold); color:var(--gold); }
+/* ── PILL BUTTON ── */
+.pill-btn {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  background: transparent;
+  border-radius: 50px;
+  padding: 0.9rem 3rem;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.pill-btn:hover {
+  background: var(--gold);
+  color: var(--deep-ocean);
+}

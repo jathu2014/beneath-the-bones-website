@@ -35,7 +35,7 @@ window.addEventListener('load', () => {
   const hapticDot = document.querySelector('#statusHaptic .status-dot');
 
   if (hasVibration) {
-    noticeText.textContent = '📳 Vibration supported — haptics active on this device';
+    noticeText.textContent = 'Vibration supported — haptics active on this device';
     notice.style.borderColor = 'rgba(201,168,76,0.4)';
     toggleRow.style.display = 'flex';
     toggleRow.style.justifyContent = 'center';
