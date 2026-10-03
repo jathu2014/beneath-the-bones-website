@@ -55,7 +55,7 @@ wavesurfer = WaveSurfer.create({
 });
 
 // ⬇ SAME audio file as page 2
-const AUDIO_SRC = 'assets/audio/whale-call.mp3';
+const AUDIO_SRC = 'assets/audio/BeneathTheBones.mp3';
 wavesurfer.load(AUDIO_SRC);
 
 wavesurfer.on('timeupdate', (currentTime) => {
