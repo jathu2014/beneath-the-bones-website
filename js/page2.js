@@ -19,7 +19,7 @@ wavesurfer = WaveSurfer.create({
 
 // ⬇ SWAP THIS PATH when your audio file is ready
 // Put your MP3 in assets/audio/ and update the filename below
-const AUDIO_SRC = 'assets/audio/whale-call.mp3';
+const AUDIO_SRC = 'assets/audio/BeneathTheBones.mp3';
 
 wavesurfer.load(AUDIO_SRC);
 
