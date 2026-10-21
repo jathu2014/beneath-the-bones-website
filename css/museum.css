@@ -3,9 +3,9 @@
   --gold: #dec184;
   --gold-light: #f3dba6;
   --gold-dim: rgba(222, 193, 132, .38);
-  --deep-ocean: #191a19;
-  --ocean-mid: #222321;
-  --ocean-blue: #30312d;
+  --deep-ocean: #031321;
+  --ocean-mid: #071f30;
+  --ocean-blue: #10394c;
   --text-primary: #faf4e8;
   --text-muted: #d7d1c5;
   --exhibit-width: 1440px;
@@ -20,7 +20,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 }
 .site-nav, .hero-nav {
   padding: 12px var(--gutter); gap: 12px;
-  background: rgba(25, 26, 25, .94);
+  background: rgba(3, 19, 33, .94);
   border-bottom: 1px solid var(--gold-dim);
 }
 .site-nav .nav-link, .hero-nav .nav-link {
@@ -29,11 +29,11 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   padding: 8px 14px;
 }
 .nav-link.active { box-shadow: inset 0 -1px var(--gold); }
-.hero { min-height: 760px; height: 90svh; }
-.hero-overlay { background: linear-gradient(180deg, rgba(25,26,25,.5), rgba(25,26,25,.48) 45%, #191a19); }
+.hero { min-height: 860px; height: 100svh; }
+.hero-overlay { background: linear-gradient(180deg, rgba(3,19,33,.62), rgba(3,19,33,.58) 45%, #031321); }
 .hero-content { padding: 110px var(--gutter) 60px; gap: 24px; }
-.hero-title { font-size: clamp(64px, 8vw, 128px); font-weight: 400; letter-spacing: .015em; }
-.hero-museum-name { font-size: 16px; letter-spacing: .22em; opacity: 1; }
+.hero-title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(80px, 10vw, 168px); font-weight: 700; letter-spacing: -.025em; line-height: 1.02; max-width: 1440px; color: #fffaf0; text-shadow: 0 4px 32px #031321; }
+.hero-museum-name { font-size: 18px; font-weight: 600; letter-spacing: .22em; opacity: 1; color: #fffaf0; padding: 10px 20px; background: rgba(3,19,33,.8); border: 1px solid var(--gold-dim); border-radius: 3px; text-shadow: 0 2px 8px #031321; }
 .hero-caption, .see-caption, .page-subtitle, .next-caption {
   font-size: clamp(24px, 2.4vw, 32px); line-height: 1.45; color: var(--text-primary);
 }
@@ -64,7 +64,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   width: 100%; max-width: var(--exhibit-width);
   height: clamp(680px, 56vw, 880px);
   border: 1px solid var(--gold-dim); border-radius: 6px;
-  background: radial-gradient(ellipse at 50% 40%, #363732, #20211f 75%);
+  background: radial-gradient(ellipse at 50% 40%, #12465a, #062336 75%);
   box-shadow: 0 24px 80px rgba(0,0,0,.18);
 }
 model-viewer { display: block; }
@@ -81,7 +81,7 @@ model-viewer { display: block; }
 .specimen-row-heading { font-size: 32px; letter-spacing: .025em; }
 .page-header { padding: 140px var(--gutter) 32px; }
 .vocal-intro, .feeling-intro, .ty-text { max-width: 880px; font-size: 26px; line-height: 1.7; }
-.vocal-fact, .feeling-card, .player-card { background: #222321; padding: 32px; border-radius: 4px; }
+.vocal-fact, .feeling-card, .player-card { background: #071f30; padding: 32px; border-radius: 4px; }
 .vf-num { font-size: 40px; font-weight: 400; }
 .vf-label, .ct-freq, .player-track-sub, .time-display, .audio-notice,
 .haptic-notice-inner, .poster-sub, .ty-credit p { font-size: 16px; letter-spacing: .04em; }
@@ -107,18 +107,18 @@ model-viewer { display: block; }
 .ty-title { font-size: clamp(52px, 6vw, 80px); }
 .ty-quote { font-size: 28px; }
 .ty-team { opacity: 1; }
-.gesture-hint { max-width: calc(100% - 24px); background: rgba(25,26,25,.92); }
+.gesture-hint { max-width: calc(100% - 24px); background: rgba(3,19,33,.92); }
 .gesture-hint span { font-size: 14px; letter-spacing: .04em; white-space: normal; }
-.model-poster { background: #20211f; }
+.model-poster { background: #062336; }
 .model-loading-text, .model-hint-text { font-size: 15px; letter-spacing: .1em; }
-.hotspot-pin { width: 44px; height: 44px; background: #20211f; }
+.hotspot-pin { width: 44px; height: 44px; background: #062336; }
 .hotspot-num { font-size: 15px; }
-.hotspot-card { width: min(360px, calc(100% - 24px)); bottom: 80px; background: rgba(32,33,31,.97); padding: 24px; }
+.hotspot-card { width: min(360px, calc(100% - 24px)); bottom: 80px; background: rgba(6,35,54,.97); padding: 24px; }
 .hotspot-card-num { font-size: 12px; }
 .hotspot-card-title { font-size: 25px; padding-right: 28px; letter-spacing: .025em; }
 .hotspot-card-text { font-size: 17px; line-height: 1.6; }
 .hotspot-card-close { width: 44px; height: 44px; top: 8px; right: 8px; font-size: 26px; }
-.hotspot-nav { background: rgba(25,26,25,.96); gap: 12px; }
+.hotspot-nav { background: rgba(3,19,33,.96); gap: 12px; }
 .hotspot-nav-label { font-size: 14px; letter-spacing: .08em; }
 .hotspot-nav-btn { width: 44px; height: 44px; flex-shrink: 0; font-size: 22px; }
 @media (max-width: 900px) {
@@ -130,7 +130,7 @@ model-viewer { display: block; }
   .site-nav, .hero-nav { padding: 8px 12px; gap: 0; justify-content: space-between; }
   .site-nav .nav-link, .hero-nav .nav-link { font-size: 14px; letter-spacing: .1em; padding: 8px 10px; }
   .hero { height: auto; min-height: 90svh; }
-  .hero-title { font-size: clamp(52px, 14vw, 76px); }
+  .hero-title { font-size: clamp(64px, 16vw, 96px); }
   .hero-museum-name { font-size: 13px; letter-spacing: .16em; }
   .hero-caption, .see-caption, .page-subtitle, .next-caption { font-size: 24px; }
   .see-hero, .page-header { padding-top: 112px; }

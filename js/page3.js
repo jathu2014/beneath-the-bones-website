@@ -51,12 +51,13 @@ wavesurfer = WaveSurfer.create({
   waveColor: 'rgba(201,168,76,0.3)',
   progressColor: 'rgba(201,168,76,0.8)',
   height: 0,
-  backend: 'WebAudio',
+  backend: 'MediaElement',
 });
 
 // ⬇ SAME audio file as page 2
 const AUDIO_SRC = 'assets/audio/BeneathTheBones.mp3';
-wavesurfer.load(AUDIO_SRC);
+wavesurfer.load(AUDIO_SRC).catch(showImmersionAudioError);
+wavesurfer.on('error', showImmersionAudioError);
 
 wavesurfer.on('timeupdate', (currentTime) => {
   if (!isImmersing || !hapticsEnabled || !hasVibration) return;
@@ -89,8 +90,8 @@ function startImmersion() {
     swimWhale.autoRotate = false;
   }
 
-  // Play audio
-  wavesurfer.play();
+  // Native media playback starts directly in the tap handler.
+  wavesurfer.play().catch(showImmersionAudioError);
 
   // Activate ripple rings
   rippleContainer.classList.add('active');
@@ -103,7 +104,7 @@ function startImmersion() {
 
   // Activate status dots
   setDot('statusAnim', true);
-  setDot('statusAudio', true);
+  setDot('statusAudio', false);
   setDot('statusHaptic', hasVibration && hapticsEnabled);
 
   // Initial haptic pulse to confirm it works
@@ -154,4 +155,12 @@ function setDot(id, active) {
   const dot = document.querySelector(`#${id} .status-dot`);
   if (!dot) return;
   dot.className = 'status-dot ' + (active ? 'dot-active' : 'dot-inactive');
+}
+// Display actual playback state, including blocked mobile playback.
+wavesurfer.on('play', () => setDot('statusAudio', isImmersing));
+wavesurfer.on('pause', () => setDot('statusAudio', false));
+
+function showImmersionAudioError() {
+  stopImmersion();
+  immerseSub.textContent = 'Audio unavailable — check connection and media volume, then tap to retry';
 }
