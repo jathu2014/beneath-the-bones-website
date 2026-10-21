@@ -22,7 +22,7 @@
     min-height: 100vh;
     background-color: var(--deep-ocean);
     color: var(--text-primary);
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Source Sans 3', sans-serif;
     overflow-x: hidden;
   }
   
@@ -65,7 +65,7 @@
   }
 
 .site-nav .nav-link {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Source Sans 3', sans-serif;
   font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 0.2em;

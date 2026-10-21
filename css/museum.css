@@ -1,0 +1,155 @@
+/* Shared museum presentation, loaded after each exhibit's original styles. */
+:root {
+  --gold: #dec184;
+  --gold-light: #f3dba6;
+  --gold-dim: rgba(222, 193, 132, .38);
+  --deep-ocean: #191a19;
+  --ocean-mid: #222321;
+  --ocean-blue: #30312d;
+  --text-primary: #faf4e8;
+  --text-muted: #d7d1c5;
+  --exhibit-width: 1440px;
+  --gutter: clamp(20px, 4vw, 72px);
+}
+body { font-size: 18px; line-height: 1.65; }
+h1, h2, h3 { text-wrap: balance; }
+p { text-wrap: pretty; }
+button, input, a { -webkit-tap-highlight-color: transparent; }
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 3px solid var(--gold-light); outline-offset: 5px;
+}
+.site-nav, .hero-nav {
+  padding: 12px var(--gutter); gap: 12px;
+  background: rgba(25, 26, 25, .94);
+  border-bottom: 1px solid var(--gold-dim);
+}
+.site-nav .nav-link, .hero-nav .nav-link {
+  font-size: 16px; letter-spacing: .16em; opacity: 1;
+  min-height: 48px; display: inline-flex; align-items: center;
+  padding: 8px 14px;
+}
+.nav-link.active { box-shadow: inset 0 -1px var(--gold); }
+.hero { min-height: 760px; height: 90svh; }
+.hero-overlay { background: linear-gradient(180deg, rgba(25,26,25,.5), rgba(25,26,25,.48) 45%, #191a19); }
+.hero-content { padding: 110px var(--gutter) 60px; gap: 24px; }
+.hero-title { font-size: clamp(64px, 8vw, 128px); font-weight: 400; letter-spacing: .015em; }
+.hero-museum-name { font-size: 16px; letter-spacing: .22em; opacity: 1; }
+.hero-caption, .see-caption, .page-subtitle, .next-caption {
+  font-size: clamp(24px, 2.4vw, 32px); line-height: 1.45; color: var(--text-primary);
+}
+.hero-btn, .pill-btn, .restart-btn {
+  min-height: 60px; padding: 16px 36px; font-size: 17px;
+  letter-spacing: .14em; font-weight: 600; border-color: var(--gold);
+  border-radius: 3px; color: var(--gold-light);
+  display: inline-flex; align-items: center; justify-content: center;
+  text-align: center; max-width: 100%;
+}
+.hero-btn { background: var(--gold); color: var(--deep-ocean); }
+.hero-btn:hover { background: var(--gold-light); }
+.about-inner { max-width: 1296px; }
+.about-text, .specimen-intro, .specimen-text p, .vf-desc, .fc-desc, .ct-desc {
+  font-size: 20px; line-height: 1.85; font-weight: 400; color: var(--text-muted);
+}
+.about-heading, .see-label, .specimen-label, .next-label,
+.page-badge, .edu-badge, .player-badge {
+  font-size: 14px; letter-spacing: .2em; font-weight: 600;
+}
+.stat-label, .footer-text { font-size: 14px; letter-spacing: .12em; }
+.stat-number { font-size: clamp(36px, 4vw, 54px); font-weight: 400; }
+.see-hero { min-height: auto; padding: 140px var(--gutter) 72px; }
+.see-title, .page-title { font-size: clamp(72px, 9vw, 128px); letter-spacing: .06em; }
+.see-caption { max-width: 800px; }
+/* All exhibit frames share the same horizontal edges as their surrounding copy. */
+.model-wrapper, .anatomy-model-wrapper, .immersion-model-wrapper {
+  width: 100%; max-width: var(--exhibit-width);
+  height: clamp(680px, 56vw, 880px);
+  border: 1px solid var(--gold-dim); border-radius: 6px;
+  background: radial-gradient(ellipse at 50% 40%, #363732, #20211f 75%);
+  box-shadow: 0 24px 80px rgba(0,0,0,.18);
+}
+model-viewer { display: block; }
+.specimen-section, .anatomy-section, .immersion-section,
+.feeling-section, .vocal-section, .calltypes-section {
+  width: 100%; max-width: calc(var(--exhibit-width) + var(--gutter) * 2);
+  margin-inline: auto; padding-inline: var(--gutter);
+}
+.specimen-row, .specimen-row-header { gap: clamp(28px, 4vw, 64px); grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
+.specimen-intro.align-right { text-align: left; }
+.specimen-title, .anatomy-title, .next-title, .vocal-title, .calltypes-title, .feeling-title {
+  font-size: clamp(36px, 4vw, 60px); letter-spacing: .025em; line-height: 1.2;
+}
+.specimen-row-heading { font-size: 32px; letter-spacing: .025em; }
+.page-header { padding: 140px var(--gutter) 32px; }
+.vocal-intro, .feeling-intro, .ty-text { max-width: 880px; font-size: 26px; line-height: 1.7; }
+.vocal-fact, .feeling-card, .player-card { background: #222321; padding: 32px; border-radius: 4px; }
+.vf-num { font-size: 40px; font-weight: 400; }
+.vf-label, .ct-freq, .player-track-sub, .time-display, .audio-notice,
+.haptic-notice-inner, .poster-sub, .ty-credit p { font-size: 16px; letter-spacing: .04em; }
+.ct-freq, .audio-notice, .ct-num { color: var(--gold); }
+.ct-name, .fc-title { font-size: 23px; letter-spacing: .035em; }
+.player-section { max-width: 1040px; padding-inline: var(--gutter); }
+.player-track-name { font-size: 28px; letter-spacing: .025em; }
+.ctrl-btn { width: 58px; height: 58px; font-size: 22px; }
+.play-btn { width: 78px; height: 78px; font-size: 28px; }
+.vol-slider { min-height: 32px; background: transparent; accent-color: var(--gold); }
+.vol-slider::-webkit-slider-runnable-track { height: 4px; background: var(--gold-dim); }
+.vol-slider::-webkit-slider-thumb { width: 24px; height: 24px; margin-top: -10px; }
+.immersion-controls { margin-top: 36px; max-width: 100%; }
+.immerse-btn { max-width: 100%; border-radius: 4px; }
+.immerse-btn-inner { padding: 26px 56px; gap: 8px; }
+.immerse-text { font-size: 19px; letter-spacing: .15em; }
+.immerse-sub, .toggle-text, .toggle-status, .status-label { font-size: 14px; letter-spacing: .1em; }
+.toggle-label { min-height: 48px; }
+.toggle-switch input:focus-visible + .toggle-slider { outline: 3px solid var(--gold-light); outline-offset: 5px; }
+.status-bar { flex-wrap: wrap; justify-content: center; gap: 16px 28px; }
+.section-divider { max-width: var(--exhibit-width); margin-block: 40px 64px; }
+.thankyou-section { max-width: 1000px; padding-inline: var(--gutter); }
+.ty-title { font-size: clamp(52px, 6vw, 80px); }
+.ty-quote { font-size: 28px; }
+.ty-team { opacity: 1; }
+.gesture-hint { max-width: calc(100% - 24px); background: rgba(25,26,25,.92); }
+.gesture-hint span { font-size: 14px; letter-spacing: .04em; white-space: normal; }
+.model-poster { background: #20211f; }
+.model-loading-text, .model-hint-text { font-size: 15px; letter-spacing: .1em; }
+.hotspot-pin { width: 44px; height: 44px; background: #20211f; }
+.hotspot-num { font-size: 15px; }
+.hotspot-card { width: min(360px, calc(100% - 24px)); bottom: 80px; background: rgba(32,33,31,.97); padding: 24px; }
+.hotspot-card-num { font-size: 12px; }
+.hotspot-card-title { font-size: 25px; padding-right: 28px; letter-spacing: .025em; }
+.hotspot-card-text { font-size: 17px; line-height: 1.6; }
+.hotspot-card-close { width: 44px; height: 44px; top: 8px; right: 8px; font-size: 26px; }
+.hotspot-nav { background: rgba(25,26,25,.96); gap: 12px; }
+.hotspot-nav-label { font-size: 14px; letter-spacing: .08em; }
+.hotspot-nav-btn { width: 44px; height: 44px; flex-shrink: 0; font-size: 22px; }
+@media (max-width: 900px) {
+  .vocal-facts, .feeling-grid { grid-template-columns: 1fr; }
+  .specimen-row, .specimen-row-header { grid-template-columns: 1fr; gap: 24px; }
+  .specimen-row-header > :empty { display: none; }
+}
+@media (max-width: 600px) {
+  .site-nav, .hero-nav { padding: 8px 12px; gap: 0; justify-content: space-between; }
+  .site-nav .nav-link, .hero-nav .nav-link { font-size: 14px; letter-spacing: .1em; padding: 8px 10px; }
+  .hero { height: auto; min-height: 90svh; }
+  .hero-title { font-size: clamp(52px, 14vw, 76px); }
+  .hero-museum-name { font-size: 13px; letter-spacing: .16em; }
+  .hero-caption, .see-caption, .page-subtitle, .next-caption { font-size: 24px; }
+  .see-hero, .page-header { padding-top: 112px; }
+  .model-wrapper, .anatomy-model-wrapper, .immersion-model-wrapper { height: clamp(500px, 75svh, 680px); }
+  .about-section, .specimen-section, .next-section { padding-block: 64px; padding-inline: var(--gutter); }
+  .about-text, .specimen-intro, .specimen-text p, .vf-desc, .fc-desc, .ct-desc { font-size: 18px; }
+  .stat-row { gap: 28px 12px; }
+  .stat-label { text-align: center; font-size: 12px; }
+  .vocal-intro, .feeling-intro, .ty-text { font-size: 24px; }
+  .calltype-item { padding: 20px 0 20px 16px; gap: 12px; }
+  .ct-num { min-width: 32px; }
+  .ct-content { min-width: 0; }
+  .player-card, .vocal-fact, .feeling-card { padding: 24px 20px; }
+  .hero-btn, .pill-btn, .restart-btn { padding: 16px 24px; font-size: 15px; }
+  .immerse-btn-inner { padding: 24px; }
+  .immerse-text { font-size: 17px; }
+  .toggle-label { gap: 10px; }
+  .toggle-text { letter-spacing: .04em; }
+  .status-label { font-size: 12px; letter-spacing: .04em; }
+  .hotspot-card-text { font-size: 16px; }
+  .hotspot-card { padding: 20px; }
+}
